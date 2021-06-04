@@ -1,0 +1,54 @@
+<h1>Exercise Manager</h1>
+
+<p>Use this page to help record and track your exercises</p>
+
+<form method="get" class="indentForm" id="addActivityForm">
+  <h2>New Activity Details:</h2>
+  <ul class="formalList">
+    <li><input type='text' name='activityName' id='activityName' placeholder="Activity name" required></li>
+    <li><input type='number' name='activityReps' id='activityReps' placeholder="Num Reps" min="1" required></li>
+    <li><input type='number' name='activityWeight' id='activityWeight' placeholder="Weight" required>
+        <input type ='radio' name='unitRadio' id="activityLbs" value = "1" required><label for="activityLbs">lbs</label>
+        <input type ='radio' name='unitRadio' id="activityKgs" value = "0" required><label for="activityKgs">kgs</label>
+        </li>
+    <li><input type='date' name='activityDate' id='activityDate' placeholder="Activity Date" required></li>
+  </ul>
+
+  <input type="submit" name="Add Activity" value="Add Activity" id="addActivityButton">
+
+</form>
+<br>
+<span id="errorLine"></span>
+
+{{#if results}}
+
+<h2>Current Activities</h2>
+  <table id="activityTable">
+    <tr>
+      <th>Date</th>
+      <th>Activity</th>
+      <th>Reps</th>
+      <th>Weight</th>
+      <th>Unit</th>
+      <th></th>
+      <th></th>
+    </tr>
+
+
+    {{#each results}}
+      <tr>
+        <td>{{this.date}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.reps}}</td>
+        <td>{{this.weight}}</td>
+        <td>{{this.units}}</td>
+        <td><input type="submit" name="Edit Activity" value="Edit" id="editActivityButton" 
+          onClick="editData('activityTable',{{this.id}}"><input type="hidden" id="row{{this.id}}"></td>
+        <td><input type="submit" name="Delete Activity" value="Delete" id="deleteActivityButton" 
+          onClick="deleteData('activityTable',{{this.id}})"><input type="hidden" id="row{{this.id}}"></td>
+      </tr>
+    {{/each}}
+  </table>
+{{/if}}
+
+<script src="js/activityBuilder.js"></script>

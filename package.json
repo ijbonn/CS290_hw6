@@ -1,0 +1,19 @@
+{
+  "name": "CS290-HW6",
+  "version": "1.0.0",
+  "description": "Exercise tracking application",
+  "main": "CS290-HW6.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ian Bonner",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.2",
+    "express-handlebars": "~3.0.0",
+    "mysql": "^2.18.1",
+    "request": "^2.88.2",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
